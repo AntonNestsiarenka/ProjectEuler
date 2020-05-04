@@ -150,9 +150,11 @@ def task12():
        Каково первое треугольное число, у которого более пятисот делителей?
        What is the first triangular number with more than five hundred divisors?
     """
+    triangl_number = euler_project.triangular_number_with_a_large_number_of_divisors(500)
+    print(triangl_number)
 
 start_time = datetime.now()
-task11()
+task10()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 

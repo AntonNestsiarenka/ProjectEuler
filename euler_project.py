@@ -361,3 +361,45 @@ def max_all_product_in_matrix_2d(n):
     max_product = search_max_product_horizontal_in_matrix_2d(max_product, n, matrix2d)
     max_product = search_max_product_diagonals_in_matrix_2d(max_product, n, matrix2d)
     return max_product
+
+
+def count_all_natural_divisors_of_number(number):
+    """
+       Функция подсчитывает общее количество натуральных делителей числа.
+       The function counts the total number of natural divisors of a number.
+    """
+    count = 2
+    for i in range(2, int(math.sqrt(number)) + 1):
+        if number % i == 0:
+            count += 2
+    if number > 1:
+        return count
+    elif number == 1:
+        return 1
+    return 0
+
+def generator_of_triangle_numbers():
+    """
+       Генератор треугольных чисел.
+       Triangular number generator.
+    """
+    number = 1
+    i = 1
+    while True:
+        yield number
+        i += 1
+        number += i
+
+
+def triangular_number_with_a_large_number_of_divisors(limit):
+    """
+       Функция возвращает треугольное число, у которого количество делителей больше limit.
+       The function returns a triangular number whose number of divisors is greater than limit.
+    """
+    gen_iter = generator_of_triangle_numbers()
+    triangl_number = next(gen_iter)
+    count = count_all_natural_divisors_of_number(triangl_number)
+    while count <= limit:
+        triangl_number = next(gen_iter)
+        count = count_all_natural_divisors_of_number(triangl_number)
+    return triangl_number
