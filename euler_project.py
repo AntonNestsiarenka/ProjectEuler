@@ -1,4 +1,5 @@
 import math
+from BigNumber import BigNumber
 
 def gen_multiple_lst(value1 = 3, value2 = 5, limit = 1000): 
     """
@@ -403,3 +404,26 @@ def triangular_number_with_a_large_number_of_divisors(limit):
         triangl_number = next(gen_iter)
         count = count_all_natural_divisors_of_number(triangl_number)
     return triangl_number
+
+def file_processing_set_of_big_numbers():
+    """
+       Обработка файла set_of_big_numbers.txt с очень большими числами.
+       Processing set_of_big_numbers.txt file with very large numbers.
+    """
+    list_of_big_numbers = []
+    with open('set_of_big_numbers.txt') as all_big_numbers:
+        for line in all_big_numbers:
+            list_of_big_numbers.append(line.strip())
+    return list_of_big_numbers
+
+def sum_all_big_numbers():
+    """
+       Сумма всех больших чисел. Функция возвращает объект класса BigNumber, в котором значение суммы сохраненно в атрибуте big_number.
+       The sum of all the big numbers. The function returns an object of class BigNumber in which the value of the sum is stored in the big_number attribute.
+    """
+    list_of_big_numbers = file_processing_set_of_big_numbers()
+    object_with_sum = BigNumber('0')
+    for i in list_of_big_numbers:
+        object_with_sum = object_with_sum + BigNumber(i)
+    return object_with_sum
+

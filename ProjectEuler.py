@@ -153,8 +153,17 @@ def task12():
     triangl_number = euler_project.triangular_number_with_a_large_number_of_divisors(500)
     print(triangl_number)
 
+def task13():
+    """
+       Найдите первые десять цифр суммы ста 50-значных чисел. Сто 50-значных чисел находятся в файле set_of_big_number.txt
+       Find the first ten digits of the sum of one hundred 50-digit numbers. One hundred 50-digit numbers are in the file set_of_big_number.txt.
+    """
+    object_big_number = euler_project.sum_all_big_numbers()
+    print(object_big_number.big_number[:10])
+
+
 start_time = datetime.now()
-task10()
+task13()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 

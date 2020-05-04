@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BigNumber.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="euler_project.py">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +33,7 @@
     <Content Include="big_number.txt" />
     <Content Include="readmeENG.txt" />
     <Content Include="readmeRU.txt" />
+    <Content Include="set_of_big_numbers.txt" />
     <Content Include="set_of_numbers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
