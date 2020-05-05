@@ -161,9 +161,18 @@ def task13():
     object_big_number = euler_project.sum_all_big_numbers()
     print(object_big_number.big_number[:10])
 
+def task14():
+    """
+       Какой начальный элемент меньше миллиона генерирует самую длинную последовательность Коллатца?
+       Which starting element of less than a million generates the longest Collatz sequence?
+    """
+    first_number = euler_project.first_number_of_longest_Collatz_sequence(1000000)
+    print(first_number)
+
+
 
 start_time = datetime.now()
-task13()
+task14()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 

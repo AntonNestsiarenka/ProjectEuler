@@ -427,3 +427,44 @@ def sum_all_big_numbers():
         object_with_sum = object_with_sum + BigNumber(i)
     return object_with_sum
 
+def count_collatz_sequence(number, memory):
+    """
+       Функция вычисляет количество элементов последовательности Коллатца. number - это значение первого элемента последовательности.
+       memory - это словарь первых элементов последовательностей и их количества.
+       The function calculates the number of elements in the Collatz sequence. number is the value of the first element of the sequence.
+       memory is a dictionary of the first elements of sequences and their quantity.
+    """
+    if number < 1:
+        raise ValueError('The number must be a natural number')
+    count = 0
+    while number != 1:
+        if number in memory:
+            count += memory[number] - 1
+            break
+        if number % 2:
+            number = 3 * number + 1
+        else:
+            number = number // 2
+        count += 1
+    return count + 1
+
+def first_number_of_longest_Collatz_sequence(limit):
+    """
+       Функция вычисляет начало самой длинной последовательности Коллатца, начальный элемент которой меньше limit.
+       The function calculates the beginning of the longest Collatz sequence, whose initial element is less than limit.
+    """
+    max_length = 0
+    first_number = 1
+    i = first_number
+    memory = {}
+    while i < limit:
+        count = count_collatz_sequence(i, memory)
+        memory[i] = count
+        if count > max_length:
+            max_length = count
+            first_number = i
+        i += 1
+    return first_number
+
+
+
