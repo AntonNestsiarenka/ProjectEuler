@@ -466,5 +466,30 @@ def first_number_of_longest_Collatz_sequence(limit):
         i += 1
     return first_number
 
+def number_of_all_possible_paths_on_grid(n):
+    """
+       Функция рассчитывает количество всех возможных путей из левого верхнего угла в правый нижний угол на двумерной сетке n x n.
+       Количество путей рассчитвается исходя из того, что можно двигаться только вниз или вправо.
+       The function calculates the number of all possible paths from the upper left corner to the lower right corner on a two-dimensional grid n x n.
+       The number of paths is calculated based on the fact that you can only move down or to the right.
+    """
+    memory = {1:2}
+    start_ind = 2
+    for i in range(start_ind, n + 1):
+        count_of_paths = i + 1
+        for j in range(2, i):
+            number_of_cells = i * j - j
+            if number_of_cells in memory:
+                memory[number_of_cells + j] = count_of_paths + memory[number_of_cells]
+                count_of_paths += memory[number_of_cells]
+            else:
+                if number_of_cells - 1 in memory:
+                    count_of_paths += memory[number_of_cells - 1]
+                    memory[number_of_cells + j] = count_of_paths
+        memory[i * i] = count_of_paths * 2
+        memory[i * i - i] = count_of_paths
+    return memory[n * n]
+
+
 
 

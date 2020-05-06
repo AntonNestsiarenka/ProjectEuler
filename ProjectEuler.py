@@ -169,10 +169,20 @@ def task14():
     first_number = euler_project.first_number_of_longest_Collatz_sequence(1000000)
     print(first_number)
 
+def task15():
+    """
+       Начиная в левом верхнем углу сетки 2×2 и имея возможность двигаться только вниз или вправо, существует ровно 6 маршрутов до правого нижнего угла сетки.
+       Сколько существует таких маршрутов в сетке 20×20?
+       Starting in the upper left corner of the grid 2 × 2 and having the ability to move only down or to the right, there are exactly 6 routes to the lower right corner of the grid.
+       How many such routes exist in a 20 × 20 grid?
+    """
+    number_of_paths = euler_project.number_of_all_possible_paths_on_grid(20)
+    print(number_of_paths)
+
 
 
 start_time = datetime.now()
-task14()
+task15()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 
