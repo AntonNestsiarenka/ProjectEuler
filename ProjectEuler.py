@@ -155,7 +155,7 @@ def task12():
 
 def task13():
     """
-       Найдите первые десять цифр суммы ста 50-значных чисел. Сто 50-значных чисел находятся в файле set_of_big_number.txt
+       Найдите первые десять цифр суммы ста 50-значных чисел. Сто 50-значных чисел находятся в файле set_of_big_number.txt.
        Find the first ten digits of the sum of one hundred 50-digit numbers. One hundred 50-digit numbers are in the file set_of_big_number.txt.
     """
     object_big_number = euler_project.sum_all_big_numbers()

@@ -6,4 +6,4 @@ To display the result in the console of a specific task, you need to call its co
 Functions for tasks are written in the same style as "taskX", where X is the number of the task. To view the runtime
 of the task code, you need to place the taskX () call function between the line start_time = datetime.now () and print ('{} {}'. format ('Lead time:', datetime.now () - start_time)).
 If possible, solutions to new problems will be added to this module.
-When there are more solutions, I’ll make a file with answers for each task, where everyone can see and check themselves or me =)
+When there are more solutions, I’ll make a file with answers for each task, where everyone can see and check themselves or me. =)

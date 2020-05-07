@@ -500,7 +500,7 @@ def big_power(number, pow):
        The function is designed to quickly raise an integer to an integer power based on the following recurrence relations:
        a ** pow = (number ** 2) ** pow / 2 (with even pow);
        a ** pow = number * number ** pow - 1 (with odd pow pow).
-       number - must be an object of class BigNumber
+       number - must be an object of class BigNumber.
     """
     if pow > 0:
         if pow % 2:
@@ -512,7 +512,7 @@ def big_power(number, pow):
 def sum_of_digits_of_big_power_number(n, pow):
     """
        Функция вычисляет сумму всех чисел результата возведения целого числа n в большую целую степень pow.
-       Целое число n представляется в виде экземпляра класса BigNumber
+       Целое число n представляется в виде экземпляра класса BigNumber.
     """
     n = BigNumber(n)
     big_number = big_power(n, pow)

@@ -10,7 +10,7 @@ class BigNumber:
     def __add__(self, other_obj):
         """
            Переопределяем поведение при сложении экземпляров класса BigNumber. Результатом является новый экземпляр с новым большим числом (суммой двух других).
-           We redefine the behavior when adding instances of the BigNumber class. The result is a new instance with a new large number (the sum of the other two).
+           Override the behavior when adding instances of the BigNumber class. The result is a new instance with a new large number (the sum of the other two).
         """
         count_other = len(other_obj.big_number)
         count_self = len(self.big_number)
