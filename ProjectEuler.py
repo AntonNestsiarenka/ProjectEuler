@@ -179,10 +179,19 @@ def task15():
     number_of_paths = euler_project.number_of_all_possible_paths_on_grid(20)
     print(number_of_paths)
 
+def task16():
+    """
+       2 ** 15 = 32768, сумма цифр этого числа равна 3 + 2 + 7 + 6 + 8 = 26.
+       Какова сумма цифр числа 2 ** 1000?
+       2 ** 15 = 32768, the sum of the digits of this number is equal to 3 + 2 + 7 + 6 + 8 = 26.
+       What is the sum of the digits of a number 2 ** 1000?
+    """
+    sum_of_digits = euler_project.sum_of_digits_of_big_power_number(2, 1000)
+    print(sum_of_digits)
 
 
 start_time = datetime.now()
-task15()
+task16()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 

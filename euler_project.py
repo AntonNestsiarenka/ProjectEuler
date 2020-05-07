@@ -1,5 +1,6 @@
 import math
 from BigNumber import BigNumber
+from random import randint
 
 def gen_multiple_lst(value1 = 3, value2 = 5, limit = 1000): 
     """
@@ -489,6 +490,38 @@ def number_of_all_possible_paths_on_grid(n):
         memory[i * i] = count_of_paths * 2
         memory[i * i - i] = count_of_paths
     return memory[n * n]
+
+def big_power(number, pow):
+    """
+       Функция предназначена для быстрого возведения целого числа в целую большую степень на основе следующих рекурентных соотношений:
+       a ** pow = (number ** 2) ** pow / 2 (при четном pow);
+       a ** pow = number * number ** pow - 1 (при нечетном pow).
+       number - должен быть объектом класса BigNumber
+       The function is designed to quickly raise an integer to an integer power based on the following recurrence relations:
+       a ** pow = (number ** 2) ** pow / 2 (with even pow);
+       a ** pow = number * number ** pow - 1 (with odd pow pow).
+       number - must be an object of class BigNumber
+    """
+    if pow > 0:
+        if pow % 2:
+            return number * big_power(number, pow - 1)
+        else:
+            return big_power(number * number, pow // 2)
+    return BigNumber(1)
+
+def sum_of_digits_of_big_power_number(n, pow):
+    """
+       Функция вычисляет сумму всех чисел результата возведения целого числа n в большую целую степень pow.
+       Целое число n представляется в виде экземпляра класса BigNumber
+    """
+    n = BigNumber(n)
+    big_number = big_power(n, pow)
+    sum = 0
+    for i in big_number.big_number:
+        sum += int(i)
+    return sum
+
+
 
 
 

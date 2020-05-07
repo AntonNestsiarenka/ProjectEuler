@@ -21,6 +21,7 @@ class BigNumber:
             limit_to_adding = count_self
         new_big_number = ''
         memory = 0
+        i = 0
         for i in range(limit_to_adding):
             sum = str(int(self.big_number[-1 - i]) + int(other_obj.big_number[-1 - i]) + memory)
             memory = 0
@@ -41,4 +42,37 @@ class BigNumber:
             new_big_number += str(memory)
         return BigNumber(new_big_number[::-1])
 
-
+    def __mul__(self, other_obj):
+        """
+           Переопределяем поведение при умножении экземпляров класса BigNumber. Результатом является новый экземпляр с новым большим числом (произведением двух других).
+           Override the behavior when multiplying instances of the BigNumber class. The result is a new instance with a new large number (the product of the other two).
+        """
+        lesser_number = other_obj
+        larger_number = self
+        count_lesser_number = len(lesser_number.big_number)
+        count_larger_number = len(larger_number.big_number)
+        if count_lesser_number > count_larger_number:
+            larger_number = other_obj
+            lesser_number = self
+            temp = count_larger_number
+            count_larger_number = count_lesser_number
+            count_lesser_number = temp
+        mnog = []
+        for i in range(count_lesser_number):
+            temp_product = ''
+            memory = 0
+            for j in range(count_larger_number):
+                temp = str(int(lesser_number.big_number[-1 - i]) * int(larger_number.big_number[-1 - j]) + memory)
+                if len(temp) > 1:
+                    memory = int(temp[0])
+                else:
+                    memory = 0
+                temp_product += temp[-1]
+            if memory:
+                temp_product += str(memory)
+            temp_product = temp_product[::-1] + i * '0'
+            mnog.append(BigNumber(temp_product))
+        result_product = BigNumber(0)
+        for i in mnog:
+            result_product += i
+        return result_product
