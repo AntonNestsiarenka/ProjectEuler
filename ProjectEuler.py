@@ -189,9 +189,21 @@ def task16():
     sum_of_digits = euler_project.sum_of_digits_of_big_power_number(2, 1000)
     print(sum_of_digits)
 
+def task17():
+    """
+       Если записать числа от 1 до 5 английскими словами (one, two, three, four, five), то используется всего 3 + 3 + 5 + 4 + 4 = 19 букв.
+       Сколько букв понадобится для записи всех чисел от 1 до 1000 (one thousand) включительно?
+       Использование "and" при записи чисел соответствует правилам британского английского.
+       If you write down numbers from 1 to 5 in English words (one, two, three, four, five), then only 3 + 3 + 5 + 4 + 4 = 19 letters are used.
+       How many letters will it take to write all numbers from 1 to 1000 (one thousand) inclusive?
+       Using "and" when writing numbers is in accordance with British English.
+    """
+    count_letters = euler_project.counting_letters_in_numerals(1000)
+    print(count_letters)
+
 
 start_time = datetime.now()
-task16()
+task17()
 print('{} {}'.format('Lead time:', datetime.now() - start_time))
 
 

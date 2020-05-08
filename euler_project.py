@@ -521,8 +521,54 @@ def sum_of_digits_of_big_power_number(n, pow):
         sum += int(i)
     return sum
 
+def converting_numeral_to_string_entry(n):
+    """
+       Функция осуществляет перевод числительного записанного в числовом виде в строку английских слов (пример: 342 - threehundredfortytwo, 115 - onehundredfifteen).
+       Пробелы между словами и дефисы не добавляются в итоговую строку. Слово "end" так же не добавляется в итоговую строку.
+       The function translates the number written in numerical form into a string of English words (example: 342 - threehundredfortytwo, 115 - onehundredfifteen).
+       Spaces between words and hyphens are not added to the summary line. The word "end" is also not added to the summary line.
+    """
+    d = {1 : 'one', 2 : 'two', 3 : 'three', 4 : 'four', 5 : 'five', 6 : 'six', 7 : 'seven', 8 : 'eight', 9 : 'nine',
+        11 : 'eleven', 12 : 'twelve', 13 : 'thirteen', 14 : 'fourteen', 15 : 'fifteen', 16 : 'sixteen', 17 : 'seventeen',
+        18 : 'eighteen', 19 : 'nineteen', 10 : 'ten', 20: 'twenty', 30 : 'thirty', 40 : 'forty', 50 : 'fifty', 60 : 'sixty',
+        70 : 'seventy', 80 : 'eighty', 90 : 'ninety', 100 : 'hundred', 1000 : 'thousand'}
+    number = ''
+    j = 1000
+    while j != 1:
+          if n // j:
+              if j > 10:
+                  if len(str(n // j)) >= 2 and n // j > 20:
+                      number += converting_numeral_to_string_entry(n // j) + d[j]
+                  else:
+                      number += d[n // j] + d[j]
+                  n = n % j
+              else:
+                  if str(n)[-1] == '0':
+                      number += d[n]
+                  else:
+                      if n in d:
+                          number += d[n]
+                      else:
+                          number += d[n // 10 * 10]
+                          number += d[n % 10]
+          else:
+              if n in d and j != 1000:
+                  number += d[n]
+                  break
+          j = j // 10
+    return number
 
-
-
+def counting_letters_in_numerals(n):
+    """
+       Подсчет количества букв в словах числительных. Слово "end" для каждого числительного учтено там где это требуется.
+       Counting the number of letters in numeral words. The word "end" for each numeral is taken into account where necessary.
+    """
+    count_letters = 0
+    for i in range(1, n + 1):
+        if i >= 100 and i % 100:
+            count_letters += 3
+        number = converting_numeral_to_string_entry(i)
+        count_letters += len(number)
+    return count_letters
 
 
